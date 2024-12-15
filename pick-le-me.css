@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Permanent+Marker&display=swap');
+:root {
+    --primary-color: #514539;
+    --secondary-color: #978501;
+    --accent1-color: #F5E9BE;
+    --accent2-color: #207178;
+    --text-dark: #514539;
+    --text-light: #F5E9BE;
+    --heading-font: "Permanent Marker", serif;
+    --paragraph-font: "Amatic SC", serif;
+}
+
+ul {
+    width: 50%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#logo-img {
+    height: 50px;
+    border: solid;
+    border-radius: 5px;
+    border-color: var(--primary-color);
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+}
+
+body {
+    background-color: var(--accent1-color);
+    color: var(--primary-color);
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--secondary-color);
+}
+
+a {
+    color: var(--primary-color);
+    font-family: "Permanent Marker", serif;
+    font-size: 25px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+}
+
+#customize {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+input {
+    width: 300px;
+    height: 25px;
+}
+
+button {
+    height: 30px;
+}
+
+.paddle {
+    margin: 10px;
+}
+
+.paddle img {
+    width: 100%;
+}
+
+#paddles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+p {
+    margin: 0%;
+    font-size: 20px;
+    font-family: var(--paragraph-font);
+}
+
+h3 {
+    color: var(--accent2-color);
+    font-size: 25px;
+    margin: 10px;
+}
+
+#preference-selector {
+    width: 30%;
+}
+
+#top-10s {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.detail img {
+    width: 40%;
+}
+
+.detail p {
+    width: 50%;
+}
+
+.detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.selector-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.selector-container label {
+    margin: 15px;
+}
+
+footer {
+    display: flex;
+    margin-left: auto;
+    font-size: 10px;
+    justify-content: right;
+    align-items: end;
+}
+
+footer a {
+    font-size: 10px;
+}
+
+@media screen and (max-width: 810px) {
+    #paddles {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #paddles {
+        grid-template-columns: 1fr;
+    }
+}
