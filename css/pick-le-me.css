@@ -149,6 +149,18 @@ footer a {
     font-size: 10px;
 }
 
+fieldset {
+    margin: 1.5rem;
+}
+
+h5 {
+    margin: 1.5rem;
+}
+
+#quiz-button {
+    margin-left: 1.5rem;
+}
+
 @media screen and (max-width: 810px) {
     #paddles {
         grid-template-columns: 1fr 1fr;

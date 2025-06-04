@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="type" content="website" />
-        <meta name="description" content="Pickleball paddles you need to know">
-        <title>Pick-Le Me</title>
-        <meta name="author" content="Yat Lam">
-        <link rel="icon" href="./images/Logo maker project.png" type="image/png" sizes="16x16">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="./pick-le-me.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="./home.js" type="module"></script>
-    </head>
-    <body>
-        <header>
-            <div id="logo">
-                <img id=logo-img src="./images/Logo maker project.png" alt="Pick-Le Me Logo">
-                <h1>Pick-Le Me</h1>
+    <meta name="type" content="website" />
+    <meta name="description" content="Pickleball paddles you need to know">
+    <title>Pick-Le Me</title>
+    <meta name="author" content="Yat Lam">
+    <link rel="icon" href="./images/Logo maker project.png" type="image/png" sizes="16x16">
+
+    <link rel="stylesheet" href="./css/pick-le-me.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./js/home.js" type="module"></script>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <img id=logo-img src="./images/Logo maker project.png" alt="Pick Le Me Logo">
+            <h1>Pick-Le Me</h1>
+        </div>
+        <ul>
+            <li><a href="index.html">Paddles</a></li>
+            <li><a href="second.html">Top 10s</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </header>
+    <main>
+        <h2>Paddles for Pickleballers</h2>
+        <div id="customize">
+            <div class="search-container">
+                <form>
+                    <input id="search-input" type="text" placeholder="Search" name="search">
+                    <button id="search-button" type="button" aria-label="search-button"><i
+                            class="fa fa-search"></i></button>
+                </form>
             </div>
-            <ul>
-                <li><a href="index.html">Paddles</a></li>
-                <li><a href="second.html">Top 10s</a></li>
-            </ul>
-        </header>
-        <main>
-            <h2>Paddles for Pickleballers</h2>
-            <div id="customize">
-                <div class="search-container">
-                    <form>
-                        <input id="search-input" type="text" placeholder="Search" name="search">
-                        <button id="search-button" type="button" aria-label="search-button"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
-                <div class="selector-container">
-                    <label for="sorting-selector">Sort by</label>
-                    <select id="sorting-selector">
-                        <option value="price-up">$-$$$</option>
-                        <option value="price-down">$$$-$</option>
-                        <option value="alphabet-up" selected>a-z</option>
-                        <option value="power">power</option>
-                        <option value="control">control</option>
-                        <option value="spin">spin</option>
-                    </select>
-                </div>
+            <div class="selector-container">
+                <label for="sorting-selector">Sort by</label>
+                <select id="sorting-selector">
+                    <option value="price-up">$-$$$</option>
+                    <option value="price-down">$$$-$</option>
+                    <option value="alphabet-up" selected>a-z</option>
+                    <option value="power">power</option>
+                    <option value="control">control</option>
+                    <option value="spin">spin</option>
+                </select>
             </div>
-            <div id="paddles">
-            </div>
-        </main>
-        <footer>images from @<a href="https://pickleballcentral.com/">Pickleball Central</a></footer>
-    </body>
+        </div>
+        <div id="paddles">
+        </div>
+    </main>
+    <footer>images from @<a href="https://pickleballcentral.com/">Pickleball Central</a></footer>
+</body>
+
 </html>
