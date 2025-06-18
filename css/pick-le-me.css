@@ -33,7 +33,7 @@ ul {
     border-color: var(--primary-color);
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5 {
     font-family: var(--heading-font);
 }
 
@@ -153,12 +153,41 @@ fieldset {
     margin: 1.5rem;
 }
 
-h5 {
+h4, h5 {
     margin: 1.5rem;
 }
 
 #quiz-button {
     margin-left: 1.5rem;
+}
+
+.hide {
+    display: none;
+}
+
+#paddle-result {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.quiz-paddle {
+    width: 15%;
+    animation: rock 5.0s ease-in-out infinite;
+}
+
+@keyframes rock {
+    0%, 50%, 100% {
+        transform: rotate(0.0deg);
+    }
+
+    25% {
+        transform: rotate(-30.0deg);
+    }
+
+    75% {
+        transform: rotate(30.0deg);
+    }
 }
 
 @media screen and (max-width: 810px) {

@@ -1,3 +1,5 @@
+import paddles from "./paddles.mjs"
+
 const quiz_data = {
     "survey": {
         "title": "Pickleball Paddle Style Assessment",
@@ -196,6 +198,42 @@ const quiz_data = {
     }
 }
 
+async function load_paddles() {
+    // No localStorage data, fetch from API
+    const I_NUMBER = "737072339";  // Replace with your actual I-NUMBER
+
+    try {
+        const response = await fetch("../quotes.json", {
+            headers: {
+                "I-NUMBER": I_NUMBER
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error("Unauthorized or error fetching data");
+        }
+
+        const data = await response.json();
+        console.log(data);
+        // const prideBook = data.books.find(book => book.title === "Pride and Prejudice");
+        // if (!prideBook) {
+        //     throw new Error("Book not found");
+        // }
+
+        // const quotes = prideBook.quotes;
+        // displayQuotes(quotes);
+
+        // // Store in localStorage
+        // localStorage.setItem("pride-prejudice", JSON.stringify(quotes));
+        // console.log("Fetched quotes from API and saved to localStorage.");
+
+        // // Hide button
+        // document.querySelector("button").classList.add("hide")
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
 function fieldset_template(question) {
     return `
         <fieldset id="${question.id}">
@@ -231,7 +269,7 @@ function get_score(question, option) {
     return quiz_questions[question - 1].options[option - 1].score_value;
 }
 
-function calculate_score(e) {
+function calculate_score() {
     let total = 0;
     for (let i = 1; i <= 8; i++) {
         const selector = "input[name='q" + i + "']:checked"
@@ -239,8 +277,33 @@ function calculate_score(e) {
         total += get_score(i,selected_option.value);
     }
     console.log(`Your score is: ${total / 8}`)
+    return total / 8;
 }
 
-document.querySelector("#quiz-button").addEventListener("click", calculate_score)
+function render_paddles(paddles) {
+    const element = document.querySelector('#paddle-result');
+    for (let i = 0; i < 5; i++) {
+        element.innerHTML += `<img class="quiz-paddle" src="${paddles[i].image}" alt="${paddles[i].name}">`;
+    }
+}
+
+function display_results() {
+    document.querySelector("#quiz-container").classList.add("hide");
+    document.querySelector("#result").classList.remove("hide");
+    const score = calculate_score();
+    let sortedPaddles = [];
+    if (score > 65) {
+        sortedPaddles = paddles.sort((a, b) => b.power - a.power);
+    } else if (score > 35) {
+        sortedPaddles = paddles.sort((a, b) => b.spin - a.spin);
+    } else {
+        sortedPaddles = paddles.sort((a, b) => b.control - a.control);
+    }
+    const top5s = sortedPaddles.slice(0, 5);
+    render_paddles(top5s);
+}
+
+document.querySelector("#quiz-button").addEventListener("click", display_results)
 
 render_quiz();
+load_paddles();
