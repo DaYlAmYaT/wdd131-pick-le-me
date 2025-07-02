@@ -215,20 +215,6 @@ async function load_paddles() {
 
         const data = await response.json();
         console.log(data);
-        // const prideBook = data.books.find(book => book.title === "Pride and Prejudice");
-        // if (!prideBook) {
-        //     throw new Error("Book not found");
-        // }
-
-        // const quotes = prideBook.quotes;
-        // displayQuotes(quotes);
-
-        // // Store in localStorage
-        // localStorage.setItem("pride-prejudice", JSON.stringify(quotes));
-        // console.log("Fetched quotes from API and saved to localStorage.");
-
-        // // Hide button
-        // document.querySelector("button").classList.add("hide")
     } catch (error) {
         console.error("Error:", error);
     }
@@ -276,8 +262,9 @@ function calculate_score() {
         const selected_option = document.querySelector(selector);
         total += get_score(i,selected_option.value);
     }
-    console.log(`Your score is: ${total / 8}`)
-    return total / 8;
+    const score = total / 8;
+    localStorage.setItem("score", score)
+    return score;
 }
 
 function render_paddles(paddles) {
@@ -288,9 +275,12 @@ function render_paddles(paddles) {
 }
 
 function display_results() {
+    let score = localStorage.getItem("score");
+    if (!score) {
+        score = calculate_score();
+    }
     document.querySelector("#quiz-container").classList.add("hide");
     document.querySelector("#result").classList.remove("hide");
-    const score = calculate_score();
     let sortedPaddles = [];
     if (score > 65) {
         sortedPaddles = paddles.sort((a, b) => b.power - a.power);
@@ -303,7 +293,14 @@ function display_results() {
     render_paddles(top5s);
 }
 
-document.querySelector("#quiz-button").addEventListener("click", display_results)
+function check_for_score() {
+    const score = localStorage.getItem("score");
+    if (score) {
+        display_results();
+    } else {
+        render_quiz();
+    }
+}
 
-render_quiz();
-load_paddles();
+document.querySelector("#quiz-button").addEventListener("click", display_results)
+check_for_score();

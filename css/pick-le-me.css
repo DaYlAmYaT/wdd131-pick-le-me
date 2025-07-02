@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Permanent+Marker&display=swap');
 :root {
     --primary-color: #514539;
-    --secondary-color: #978501;
-    --accent1-color: #F5E9BE;
-    --accent2-color: #207178;
+    --secondary-color: rgb(172, 170, 150);
+    --accent1-color: #dfdbcd;
+    --accent2-color: #3c5b5e;
     --text-dark: #514539;
-    --text-light: #F5E9BE;
+    --text-light: #dfdbcd;
     --heading-font: "Permanent Marker", serif;
     --paragraph-font: "Amatic SC", serif;
 }
@@ -80,6 +80,14 @@ button {
 
 .paddle {
     margin: 10px;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+}
+
+.paddle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 
 }
 
 .paddle img {
@@ -107,25 +115,6 @@ h3 {
     width: 30%;
 }
 
-#top-10s {
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-.detail img {
-    width: 40%;
-}
-
-.detail p {
-    width: 50%;
-}
-
-.detail {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
 .selector-container {
     display: flex;
     flex-direction: row;
@@ -136,6 +125,108 @@ h3 {
 .selector-container label {
     margin: 15px;
 }
+
+#details-container {
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+#details-container > img {
+    width: 45%;
+}
+
+
+
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 80%;
+  position: relative;
+  margin: auto;
+  border-radius: 10px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+}
+
+.mySlides img {
+    margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: var(--primary-color);
+}
+
+/* Caption text */
+.text {
+  color: var(--primary-color);
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: var(--primary-color);
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
 
 footer {
     display: flex;
@@ -176,6 +267,19 @@ h4, h5 {
     animation: rock 5.0s ease-in-out infinite;
 }
 
+#menu {
+    display: flex;
+    flex-direction: row;
+
+}
+
+#menu-icon {
+    display: none;
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
 @keyframes rock {
     0%, 50%, 100% {
         transform: rotate(0.0deg);
@@ -191,8 +295,25 @@ h4, h5 {
 }
 
 @media screen and (max-width: 810px) {
+
     #paddles {
         grid-template-columns: 1fr 1fr;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    #normal-menu {
+        display: none;
+    }
+
+    #menu-icon:hover + #normal-menu{
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        background-color: var(--secondary-color);
     }
 }
 

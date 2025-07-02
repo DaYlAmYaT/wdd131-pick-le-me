@@ -4,17 +4,10 @@ let displayingPaddles = []
 
 function paddleTemplate(paddle) {
     return `
-        <div class="paddle">
+        <a class="paddle" href="paddle.html?id=${paddle.id}">
             <img src="${paddle.image}" alt="${paddle.name}">
             <h3>${paddle.name}</h3>
-            <p>Brand: ${paddle.brand}</p>
-            <p>Price: $${paddle.price}</p>
-            <p>Power:   ${paddle.power}/10</p>
-            <p>Control: ${paddle.control}/10</p>
-            <p>Spin:    ${paddle.spin}/10</p>
-            <br>
-            <p>${paddle.description}</p>
-        </div>
+        </a>
     `;
 }
 
@@ -84,3 +77,6 @@ function sort() {
 init();
 document.querySelector("#search-button").addEventListener("click", searchHandler);
 document.querySelector("#sorting-selector").addEventListener("change", sort)
+document.querySelector("#menu-icon").addEventListener("click", () => {
+    console.log("clicked");
+})

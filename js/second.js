@@ -2,23 +2,25 @@ import paddles from "./paddles.mjs"
 
 function paddleTemplate(paddle, rank) {
     return `
-        <div class="paddle">
-            <h3>${rank}. ${paddle.name}</h3>
-            <div class="detail">
-                <img src="${paddle.image}" alt="${paddle.name}">
-                <p>${paddle.description}</p>
-            </div>
-        </div>
+        <a class="mySlides fade" href="paddle.html?id=${paddle.id}">
+            <div class="numbertext">${rank} / 10</div>
+            <img src="${paddle.image}" style="width:45%; margin: auto;">
+            <div class="text">${paddle.name}</div>
+        </a>
     `;
 }
 
 function renderPaddles(paddles) {
-    const element = document.querySelector("#top-10s");
+    const element = document.querySelector(".slideshow-container");
     element.innerHTML = ``;
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 10; i > 0; i--) {
         const html = paddleTemplate(paddles[i - 1], i);
         element.innerHTML += html;
     }
+    element.innerHTML += `
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>`;
+    slideIndex = 1;
 }
 
 function change() {
@@ -38,11 +40,38 @@ function change() {
     }
     const top10s = sortedPaddles.slice(0, 10);
     renderPaddles(top10s);
+    showSlides(slideIndex);
+    document.querySelector(".prev").addEventListener("click", () => {
+        plusSlides(-1);
+    })
+
+    document.querySelector(".next").addEventListener("click", () => {
+        plusSlides(1);
+    })
 }
 
 function init() {
     change();
 }
 
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) {
+        slideIndex = 10
+    }
+    if (n < 1) {slideIndex = 1}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex-1].style.display = "block";
+}
+
+let slideIndex = 1;
 init();
+showSlides(slideIndex);
 document.querySelector("#preference-selector").addEventListener("change", change);

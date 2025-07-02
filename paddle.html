@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./css/pick-le-me.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="./js/home.js" type="module"></script>
+    <script src="./js/paddle.js" type="module"></script>
 </head>
 
 <body>
@@ -22,36 +22,17 @@
             <img id=logo-img src="./images/Logo maker project.png" alt="Pick Le Me Logo">
             <h1>Pick-Le Me</h1>
         </div>
-        <button id="menu-icon" class="material-icons">menu</button>
-        <ul id="normal-menu">
+        <i id="menu-icon" class="material-icons">menu</i>
+        <ul id="menu">
             <li><a href="index.html">Paddles</a></li>
             <li><a href="second.html">Top 10s</a></li>
             <li><a href="quiz.html">Quiz</a></li>
         </ul>
     </header>
     <main>
-        <h2>Paddles for Pickleballers</h2>
-        <div id="customize">
-            <div class="search-container">
-                <form>
-                    <input id="search-input" type="text" placeholder="Search" name="search">
-                    <button id="search-button" type="button" aria-label="search-button"><i
-                            class="fa fa-search"></i></button>
-                </form>
-            </div>
-            <div class="selector-container">
-                <label for="sorting-selector">Sort by</label>
-                <select id="sorting-selector">
-                    <option value="price-up">$-$$$</option>
-                    <option value="price-down">$$$-$</option>
-                    <option value="alphabet-up" selected>a-z</option>
-                    <option value="power">power</option>
-                    <option value="control">control</option>
-                    <option value="spin">spin</option>
-                </select>
-            </div>
-        </div>
-        <div id="paddles">
+        <h2>Paddle Detail</h2>
+        <div id="details-container">
+
         </div>
     </main>
     <footer>images from @<a href="https://pickleballcentral.com/">Pickleball Central</a></footer>
