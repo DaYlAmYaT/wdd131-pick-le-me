@@ -78,5 +78,6 @@ init();
 document.querySelector("#search-button").addEventListener("click", searchHandler);
 document.querySelector("#sorting-selector").addEventListener("change", sort)
 document.querySelector("#menu-icon").addEventListener("click", () => {
-    console.log("clicked");
+    const menu = document.querySelector("#normal-menu");
+    menu.classList.toggle("is-active");
 })

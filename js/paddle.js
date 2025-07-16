@@ -36,3 +36,7 @@ function init() {
 }
 
 init();
+document.querySelector("#menu-icon").addEventListener("click", () => {
+    const menu = document.querySelector("#normal-menu");
+    menu.classList.toggle("is-active");
+})

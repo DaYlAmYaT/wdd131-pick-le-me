@@ -79,7 +79,7 @@ button {
 }
 
 .paddle {
-    margin: 10px;
+    margin: 20px;
     padding: 10px;
     background-color: var(--secondary-color);
     border-radius: 10px;
@@ -95,6 +95,7 @@ button {
 }
 
 #paddles {
+    margin: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -139,7 +140,9 @@ h3 {
     width: 45%;
 }
 
-
+li > a:hover {
+    color: var(--accent2-color);
+}
 
 
 * {box-sizing:border-box}
@@ -150,6 +153,7 @@ h3 {
   position: relative;
   margin: auto;
   border-radius: 10px;
+  text-align: center;
 }
 
 /* Hide the images by default */
@@ -161,10 +165,12 @@ h3 {
 
 .mySlides img {
     margin: auto;
+    align-self: center;
 }
 
 /* Next & previous buttons */
 .prev, .next {
+    display: block;
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -264,7 +270,10 @@ h4, h5 {
 
 .quiz-paddle {
     width: 15%;
-    animation: rock 5.0s ease-in-out infinite;
+}
+
+.quiz-paddle:hover {
+    animation: rock 0.1s ease-in-out infinite;
 }
 
 #menu {
@@ -280,8 +289,24 @@ h4, h5 {
     color: var(--primary-color);
 }
 
+#menu-icon:hover {
+    color: var(--accent2-color)
+}
+
+#normal-menu.is-active{
+    width: 30%;
+    padding: 5px;
+    display: flex;
+    top: 80px;
+    right: 0;
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--secondary-color);
+    box-shadow: 2px 2px 2px var(--primary-color);
+}
+
 @keyframes rock {
-    0%, 50%, 100% {
+    /* 0%, 50%, 100% {
         transform: rotate(0.0deg);
     }
 
@@ -291,6 +316,26 @@ h4, h5 {
 
     75% {
         transform: rotate(30.0deg);
+    } */
+
+    0% {
+        transform: rotate(0.0deg);
+    }
+
+    25% {
+        transform: rotate(90.0deg);
+    }
+
+    50% {
+        transform: rotate(180.0deg);
+    }
+
+    75% {
+        transform: rotate(270.0deg);
+    }
+
+    100% {
+        transform: rotate(360.0deg);
     }
 }
 
@@ -307,18 +352,18 @@ h4, h5 {
     #normal-menu {
         display: none;
     }
-
-    #menu-icon:hover + #normal-menu{
-        width: 15%;
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        background-color: var(--secondary-color);
-    }
 }
 
 @media screen and (max-width: 600px) {
     #paddles {
         grid-template-columns: 1fr;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    #normal-menu {
+        display: none;
     }
 }

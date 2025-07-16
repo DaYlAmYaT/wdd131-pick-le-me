@@ -75,3 +75,7 @@ let slideIndex = 1;
 init();
 showSlides(slideIndex);
 document.querySelector("#preference-selector").addEventListener("change", change);
+document.querySelector("#menu-icon").addEventListener("click", () => {
+    const menu = document.querySelector("#normal-menu");
+    menu.classList.toggle("is-active");
+})
