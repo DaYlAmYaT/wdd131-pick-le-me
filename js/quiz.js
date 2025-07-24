@@ -1,4 +1,4 @@
-import fetchJSONData from "./paddles.mjs"
+import paddles from "./paddles.mjs"
 
 let quiz_data = {}
 
@@ -46,6 +46,14 @@ function render_quiz() {
     quiz_questions.forEach(question => {
         form_element.innerHTML += fieldset_template(question);
     });
+    form_element.innerHTML += `
+        <fieldset>
+            <legend>Email</legend>
+            <label for="email"></label>
+            <input type="text" id="fname" name="fname" placeholder="First Name" pattern="[A-Z]{1}[A-Za-z]{1,50}" required>
+        </fieldset>
+        `
+        
 }
 
 function get_score(question, option) {
@@ -101,11 +109,24 @@ function check_for_score() {
 }
 
 await load_quiz();
-console.log("---------------")
-console.log(quiz_data)
-document.querySelector("#quiz-button").addEventListener("click", display_results)
+document.querySelector("#quiz-button").addEventListener("click", (e) => {
+    e.preventDefault();
+    const inputElement = document.querySelector("#fname");
+    if (inputElement.checkValidity()) {
+        display_results();
+    } else {
+        document.querySelector("h6").classList.remove("hide");
+        window.scrollTo(0, 0);
+    }
+})
 check_for_score();
 document.querySelector("#menu-icon").addEventListener("click", () => {
     const menu = document.querySelector("#normal-menu");
     menu.classList.toggle("is-active");
-})
+});
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 810) {
+        const menu = document.querySelector("#normal-menu");
+        menu.classList.remove("is-active");
+    }
+});

@@ -40,3 +40,10 @@ document.querySelector("#menu-icon").addEventListener("click", () => {
     const menu = document.querySelector("#normal-menu");
     menu.classList.toggle("is-active");
 })
+
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 810) {
+        const menu = document.querySelector("#normal-menu");
+        menu.classList.remove("is-active");
+    }
+})
