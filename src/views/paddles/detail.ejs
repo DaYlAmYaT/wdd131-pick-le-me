@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+    <h2>Paddle Detail</h2>
+    <div id="details-container">
+        <img src="<%= paddle.image %>" alt="<%= paddle.name %>">
+            <div id='details'>
+                <h3><%= paddle.name %></h3>
+                <p>Brand: <%= paddle.brand %></p>
+                <p>Price: $<%= paddle.price %></p>
+                <p>Power:   <%= paddle.power %>/10</p>
+                <p>Control: <%= paddle.control %>/10</p>
+                <p>Spin:    <%= paddle.spin %>/10</p>
+                <br>
+                <p><%= paddle.description %></p>
+            </div>
+    </div>
+<%- include('../partials/footer') %>

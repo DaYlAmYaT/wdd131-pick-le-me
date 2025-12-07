@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+    <h2>Paddles for Pickleballers</h2>
+    <div class="query-container">
+        <div id="customize">
+            <div class="search-container">
+                <form>
+                    <label for="search-input"></label>
+                    <input id="search-input" type="text" placeholder="Search" name="search">
+                    <button id="search-button" type="button" aria-label="search-button"><i
+                            class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="selector-container">
+                <label id="sorting-label" for="sorting-selector">Sort by</label>
+                <select id="sorting-selector">
+                    <option value="price-up">$-$$$</option>
+                    <option value="price-down">$$$-$</option>
+                    <option value="alphabet-up" selected>a-z</option>
+                    <option value="power">power</option>
+                    <option value="control">control</option>
+                    <option value="spin">spin</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id="paddles">
+        <% paddles.forEach(paddle => { %>
+            <a class="paddle" href="/<%= paddle.id %>">
+                <img src="<%= paddle.image %>" alt="<%= paddle.name %>">
+                <h3><%= paddle.name %></h3>
+            </a>
+        <% }); %>
+    </div>
+<%- include('../partials/footer') %>
