@@ -12,6 +12,10 @@ import connectPgSimple from 'connect-pg-simple';
 
 // Import Database
 import { setupDatabase, testConnection } from './src/models/setup.js';
+
+// Import flash
+import flash from './src/middlewares/flash.js';
+
 /**
  * Declare Important Variables
  */
@@ -62,6 +66,7 @@ app.use(express.json());
 /**
  * Global Middleware
  */
+app.use(flash);
 app.use(globalMiddleware);
 
 /**
@@ -113,7 +118,7 @@ app.listen(PORT, async () => {
     try {
         await testConnection();
         await setupDatabase();
-        console.log(`Server is running on http://127.0.0.1:${PORT}`);
+        console.log(`Server is running on http://127.0.0.1:${PORT}/paddles`);
     } catch (error) {
         console.error('Database setup failed:', error.message);
         process.exit(1);

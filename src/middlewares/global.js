@@ -32,6 +32,7 @@ const setHeadAssetsFunctionality = (res) => {
     };
 
     res.addScript = (js, priority = 0) => {
+        console.log(`Adding script ${js}`)
         res.locals.scripts.push({ content: js, priority });
     };
 
@@ -72,10 +73,10 @@ const setLocalVariables = (req, res) => {
     res.locals.queryParams = { ...req.query };
 
     // Convenience variable for UI state based on session state
-    // res.locals.isLoggedIn = false;
-    // if (req.session && req.session.user) {
-    //     res.locals.isLoggedIn = true;
-    // }
+    res.locals.isLoggedIn = false;
+    if (req.session && req.session.user) {
+        res.locals.isLoggedIn = true;
+    }
 };
 
 const globalMiddleware = (req, res, next) => {

@@ -1,0 +1,152 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+    <div id="quiz-container">
+        <h2>Quiz</h2>
+        <h4>Finish the quiz to see what paddles suit you!</h4>
+        <h5>Please fill in all the questions.</h5>
+        <h6 class="hide">Please capotalize the first letter!!</h6>
+        <form method="POST" action="/quiz" id="quiz">
+            <fieldset id="q1">
+                <legend>When playing pickleball, what do you enjoy doing most?</legend>
+                <div>
+                    <input type="radio" id="q1-1" name="q1" value="1" required>
+                    <label>Placing the ball precisely where your opponent can't reach it.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q1-2" name="q1" value="2" required>
+                    <label>Mixing up soft shots with strong drives to keep opponents guessing.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q1-3" name="q1" value="3" required>
+                    <label>Hitting powerful shots that overwhelm your opponents.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q1-4" name="q1" value="4" required>
+                    <label>Playing defensively and waiting for opponent errors.</label>
+                </div>
+            </fieldset>
+            <fieldset id="q2">
+                <legend>During a dink rally at the kitchen line, what is your main objective?</legend>
+                <div>
+                    <input type="radio" id="q2-1" name="q2" value="1" required>
+                    <label>Maintain control and force your opponent into an uncomfortable position.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q2-2" name="q2" value="2" required>
+                    <label>Look for an opportunity to hit a hard drive past your opponent.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q2-3" name="q2" value="3" required>
+                    <label>Try to add heavy spin to make the ball harder to return.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q2-4" name="q2" value="4" required>
+                    <label>Simply keep the ball in play until an opening appears.</label>
+                </div>
+            </fieldset>
+            <fieldset id="q3">
+                <legend>How do you typically react to a fast, hard shot coming at you?</legend>
+                <div>
+                    <input type="radio" id="q3-1" name="q3" value="1" required>
+                    <label>I try to soften the ball and drop it into the kitchen to reset the rally.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q3-2" name="q3" value="2" required>
+                    <label>I try to block or counter-punch it back with equal or more force.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q3-3" name="q3" value="3" required>
+                    <label>I focus on getting my paddle on the ball and just sending it back.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q3-4" name="q3" value="4" required>
+                    <label>I try to redirect it with spin to make it awkward for them.</label>
+                </div>
+            </fieldset>
+            <fieldset id="q4">
+                <legend>When you're trying to win a point, what is your preferred method?</legend>
+                <div>
+                    <input type="radio" id="q4-1" name="q4" value="1" required>
+                    <label>Outmaneuver my opponents with precise placement and strategic dinks until I get an easy put-away.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q4-2" name="q4" value="2" required>
+                    <label>Hit winners with powerful drives and smashes.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q4-3" name="q4" value="3" required>
+                    <label>Combine soft, controlled shots with occasional powerful attacks to keep opponents off balance.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q4-4" name="q4" value="4" required>
+                    <label>Wait for my opponent to make an unforced error.</label>
+                </div>
+            </fieldset>
+            <fieldset id="q5">
+                <legend>How important is 'feel' (the tactile feedback from the ball hitting the paddle) in your game?</legend>
+                <div>
+                    <input type="radio" id="q5-1" name="$q5" value="1" required>
+                    <label>Extremely important; I need to feel the ball for precise drops and dinks.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q5-2" name="q5" value="2" required>
+                    <label>Moderately important; I like some feel, but power is also a factor.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q5-3" name="q5" value="3" required>
+                    <label>Not very important; I prioritize generating power.</label>
+                </div>
+            </fieldset>
+            <fieldset id="q6">
+                <legend>How would you describe your typical swing speed and power?</legend>
+                <div>
+                    <input type="radio" id="q6-1" name="q6" value="1" required>
+                    <label>Moderate to slow, focusing on control and placement.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q6-2" name="q6" value="2" required>
+                    <label>Fast and aggressive, aiming for maximum ball speed.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q6-3" name="q6" value="3" required>
+                    <label>Variable, I can adjust between soft and powerful swings.</label>
+                </div>
+            </fieldset>
+            <fieldset id="q7">
+                <legend>When serving, what is your primary goal?</legend>
+                <div>
+                    <input type="radio" id="q7-1" name="q7" value="1" required>
+                    <label>Serve consistently and place the ball accurately.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q7-2" name="q7" value="2" required>
+                    <label>Hit the ball with maximum power and spin.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q7-3" name="q7" value="3" required>
+                    <label>A good blend of power and consistency.</label>
+                </div>
+            </fieldset>
+            <fieldset id="q8">
+                <legend>What kind of opponent do you generally find most challenging?</legend>
+                <div>
+                    <input type="radio" id="q8-1" name="q8" value="1" required>
+                    <label>An opponent with exceptional touch and dinking skills.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q8-2" name="q8" value="2" required>
+                    <label>An opponent who hits very hard and fast.</label>
+                </div>
+                <div>
+                    <input type="radio" id="q8-3" name="q8" value="3" required>
+                    <label>An opponent with a very unpredictable and adaptable game.</label>
+                </div>
+            </fieldset>
+        </form>
+        <button id="quiz-button" type="submit">submit</button>
+    </div>
+    <div id="result" class="hide">
+        <h2>Result</h2>
+        <div id="paddle-result"></div>
+    </div>
+<%- include('../partials/footer') %>

@@ -1,20 +1,22 @@
+<%- include('../partials/head') %>
+<script src="/js/second.js"></script>
 <%- include('../partials/header') %>
     <div id="top-10-container">
-        <h2>Top 10 XXX Paddles</h2>
+        <h2>Top 10 <%= preference %> Paddles</h2>
         <div class="selector-container">
             <label id="preference-label" for="preference-selector">Top 10 of</label>
             <select id="preference-selector">
-                <a href="/top10?preference=power"><option value="power" selected>power</option></a>
-                <a href="/top10?preference=control"><option value="control">control</option></a>
-                <a href="/top10?preference=spin"><option value="spin">spin</option></a>
+                <option value="power" <%= preference == 'power' ? 'selected' : '' %>>power</option>
+                <option value="control" <%= preference == 'control' ? 'selected' : '' %>>control</option>
+                <option value="spin" <%= preference == 'spin' ? 'selected' : '' %>>spin</option>
             </select>
         </div>
     </div>
 
     <div class="slideshow-container">
         <% paddles.forEach(paddle => { %>
-            <a class="mySlides fade" href="/<%= paddle.id %>">
-                <div class="numbertext"> <% paddle.rank %> / 10</div>
+            <a class="mySlides fade" href="/paddles/<%= paddle.id %>">
+                <div class="numbertext"> <%= paddle.rank %> / 10</div>
                 <img src="<%= paddle.image %>" style="width:45%; margin: auto;">
                 <div class="text"><%= paddle.name %></div>
             </a>
@@ -22,5 +24,4 @@
         <a class="prev">&#10094;</a>
         <a class="next">&#10095;</a>`
     </div>
-    <%- renderScripts() %>
 <%- include('../partials/footer') %>

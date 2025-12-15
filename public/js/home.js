@@ -1,30 +1,3 @@
-import paddles from "./paddles.mjs"
-
-let displayingPaddles = []
-
-function paddleTemplate(paddle) {
-    return `
-        <a class="paddle" href="paddle.html?id=${paddle.id}">
-            <img src="${paddle.image}" alt="${paddle.name}">
-            <h3>${paddle.name}</h3>
-        </a>
-    `;
-}
-
-function renderPaddles(paddleList) {
-    const element = document.querySelector("#paddles");
-    let html = ``;
-    paddleList.forEach(paddle => {
-        html += paddleTemplate(paddle);
-    });
-    element.innerHTML = html;
-}
-
-function init() {
-    displayingPaddles = paddles;
-    renderPaddles(displayingPaddles);
-}
-
 function search(paddle, query) {
     if (paddle.name.toLowerCase().includes(query) ||
         paddle.brand.toLowerCase().includes(query) ||
@@ -74,17 +47,41 @@ function sort() {
     renderPaddles(displayingPaddles);
 }
 
-init();
-document.querySelector("#search-button").addEventListener("click", searchHandler);
-document.querySelector("#sorting-selector").addEventListener("change", sort)
-document.querySelector("#menu-icon").addEventListener("click", () => {
-    const menu = document.querySelector("#normal-menu");
-    menu.classList.toggle("is-active");
+function hookSortSelector() {
+    console.log('-------------------------')
+    console.log('hook sort selector');
+    console.log('-------------------------')
+    const sortSelector = document.querySelector("#sorting-selector");
+    if (sortSelector) {
+        sortSelector.addEventListener('change', () => {
+            const selected = sortSelector.value;
+            const url = new URL(window.location.href);
+
+            if (selected)
+                url.searchParams.set('sort', selected);
+            
+            window.location.href = url.toString();
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    // document.querySelector("#search-button").addEventListener("click", searchHandler);
+    // document.querySelector("#sorting-selector").addEventListener("change", sort)
+    hookSortSelector();
+    document.querySelector("#menu-icon").addEventListener("click", () => {
+        const menu = document.querySelector("#normal-menu");
+        menu.classList.toggle("is-active");
+    })
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 810) {
+            const menu = document.querySelector("#normal-menu");
+            menu.classList.remove("is-active");
+        }
+    })
 })
 
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 810) {
-        const menu = document.querySelector("#normal-menu");
-        menu.classList.remove("is-active");
-    }
-})
+console.log('##############')
+console.log('Home js')
+console.log('##############')

@@ -1,0 +1,37 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+    <h1>Welcome to Your Dashboard</h1>
+    <p>
+        <a href="/users/<%= user.id %>/edit">Edit Account</a>
+    </p>
+    <% if (sessionData && sessionData.user) { %>
+        <% if(sessionData.user.role_name === 'admin' || sessionData.user.role_name === 'co-admin') { %>
+            <p>
+                <a href="/users">Edit Users</a>
+            </p>
+        <% } %>
+    <% } %>
+
+    <div class="user-info">
+        <h2>Your Account Information</h2>
+        <!-- TODO: Display user name, email, and account creation date -->
+        <!-- TODO: Use the user object passed from the controller -->
+        <!-- TODO: Format the creation date nicely -->
+        <div class="user-detail">
+            <p class="label">Name: </p>
+            <p class="value"><%= user.name %></p>
+        </div>
+        <div class="user-detail">
+            <p class="label">Email: </p>
+            <p class="value"><%= user.email %></p>
+        </div>
+        <div class="user-detail">
+            <p class="label">Creation Date: </p>
+            <p class="value"><%= new Date(user.created_at).toLocaleDateString() %></p>
+        </div>
+    </div>
+
+    <div class="dashboard-actions">
+        <a href="/logout" class="logout-button">Logout</a>
+    </div>
+<%- include('../partials/footer') %>

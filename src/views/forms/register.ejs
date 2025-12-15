@@ -1,0 +1,42 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+    <h2>Register</h2>
+    <form method="POST" action="/register" class="registration-form">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" 
+                minlength="7" placeholder="example: Peter Parker" required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" 
+                placeholder="example: peterparker@gmail.com" required>
+            </input>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmEmail">Email Confirmation</label>
+            <input type="email" id="confirmEmail" name="confirmEmail" 
+                placeholder="example: peterparker@gmail.com" required>
+            </input>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"
+                minlength="8" pattern="(?=.*[0-9])(?=.*[!@#$%^&*]).*" required>
+            </input>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Password Confirmation</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" 
+                minlength="8" pattern="(?=.*[0-9])(?=.*[!@#$%^&*]).*" required></input>
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
+
+<%- include('../partials/footer') %>

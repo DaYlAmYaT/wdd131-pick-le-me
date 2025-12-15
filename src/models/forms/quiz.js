@@ -197,5 +197,5 @@ const questions = {
 }
 
 export const getQuestions = () => {
-    return questions;
+    return questions.survey.questions;
 }

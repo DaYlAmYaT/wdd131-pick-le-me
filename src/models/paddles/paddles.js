@@ -20,13 +20,13 @@ export const getAllPaddles = async (sortBy) => {
                 orderByClause = 'paddle_name';
                 break;
             case 'power':
-                orderByClause = 'power';
+                orderByClause = 'power DESC';
                 break;
             case 'control':
-                orderByClause = 'control';
+                orderByClause = 'control DESC';
                 break;
             case 'spin':
-                orderByClause = 'spin';
+                orderByClause = 'spin DESC';
                 break;
             default:
                 orderByClause = 'paddle_name';

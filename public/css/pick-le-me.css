@@ -63,7 +63,7 @@ a {
     font-size: 25px;
 }
 
-h2 {
+h1,h2 {
     text-align: center;
     font-size: 40px;
 }
@@ -150,7 +150,7 @@ li > a:hover {
     color: var(--accent2-color);
 }
 
-#sorting-selector, #sorting-label, #search-input::placeholder, #preference-selector, #preference-label {
+#sorting-selector, #sorting-label, #search-input::placeholder, #preference-selector, #preference-label, .form-group {
     font-family: var(--heading-font);
     color: var(--primary-color);
 }
@@ -280,6 +280,10 @@ h4, h5, h6 {
     display: none;
 }
 
+.show {
+    display: block;
+}
+
 #paddle-result {
     display: flex;
     flex-direction: row;
@@ -350,6 +354,41 @@ h4, h5, h6 {
             margin-right: auto;
         }
         h3 {
+            text-align: center;
+        }
+    }
+}
+
+.login-form, .registration-form {
+    width: 75%;
+    height: 250px;
+    border-radius: 10px;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--secondary-color);
+}
+
+.user-info {
+    width: 75%;
+    height: 400x;
+    border-radius: 10px;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--secondary-color);
+
+    .user-detail {
+        display: flex;
+        flex-direction: row;
+        h4 {
+            text-align: center;
+        }
+        p {
             text-align: center;
         }
     }

@@ -1,11 +1,15 @@
 import { getQuestions } from '../../models/forms/quiz.js' 
 
-const quizPage = async (req, res) => {
-    const questions = await getQuestions();
+const quizPage = (req, res) => {
+    const questions = getQuestions();
 
-    res.render('quiz', {
+    res.render('forms/quiz', {
         questions: questions
     });
+}
+
+const processQuiz = (req, res) => {
+
 }
 
 export { quizPage };

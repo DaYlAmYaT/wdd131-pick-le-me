@@ -35,7 +35,8 @@ function options_template(question, options) {
                 <div>
                     <input type="radio" id="${id}" name="${question}" value="${i}" required>
                     <label>${options[i-1].text}</label>
-                </div>`
+                </div>
+            `
     }
     return template;
 }

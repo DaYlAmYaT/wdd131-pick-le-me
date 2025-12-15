@@ -1,0 +1,67 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<h1>Users</h1>
+
+    <!-- TODO: Check if users array exists and has content -->
+    <!-- TODO: Loop through users and display: ID, name, email, registration date -->
+    <!-- TODO: Format the created_at date nicely -->
+    <!-- TODO: Add appropriate classes and ids; see the styles section for some ideas -->
+    <!-- TODO: Handle the case when no users are registered -->
+    <!-- NOTE: Sorting will not be a feature on this page -->
+    <% if(users && users.length > 0) { %>
+        <div class="users-list">
+            <% users.forEach((user) => { %>
+                <div class="user-card">
+                    <h3><%= user.name %></h3>
+                    <p><%= user.email %></p>
+
+                    <% if (session && session.user) { %>
+                        <% 
+                            const targetUserRole = user.role_name;
+                            const currentUser = session.user;
+                            const isOwnCard = currentUser.id === user.id;
+                            const isAdmin = currentUser.role_name === 'admin';
+                            const isCoAdmin = currentUser.role_name === 'co-admin';
+                            const canEdit = (isCoAdmin && targetUserRole != 'admin') || isAdmin;
+                            const canDelete = isAdmin && !isOwnCard;
+                            const canGivePermission = targetUserRole == 'user'
+                        %>
+
+                        <div class="actions">
+                            <% if (canEdit) { %>
+                                <a href="/users/<%= user.id %>/edit">Edit</a>
+                            <% } %>
+
+                            <% if (canDelete) { %>
+                                <form method="POST" action="/users/<%= user.id %>/delete" style="display: inline;">
+                                    <button type="submit" onclick="return confirm('Delete this user?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            <% } %>
+
+                            <% if (isAdmin && canGivePermission) { %>
+                                <form method="POST" action="/users/<%= user.id %>/givePermission" style="display: inline;">
+                                    <button type="submit" onclick="return confirm('Make this user co-admin?')">
+                                        Make Co-admin
+                                    </button>
+                                </form>
+                            <% } %>
+                            
+
+                            <% if (isAdmin && !canGivePermission && targetUserRole != 'admin') { %>
+                                <form method="POST" action="/users/<%= user.id %>/revokePermission" style="display: inline;">
+                                    <button type="submit" onclick="return confirm('Take away Permission?')">
+                                        Revoke Permission
+                                    </button>
+                                </form>
+                            <% } %>
+                        </div>
+                    <% } %>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <p class="no-user">No contact form submissions yet.</p>
+    <% } %>
+<%- include('../partials/footer') %>

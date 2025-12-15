@@ -1,3 +1,5 @@
+<%- include('../partials/head') %>
+<script src="/js/home.js"></script>
 <%- include('../partials/header') %>
     <h2>Paddles for Pickleballers</h2>
     <div class="query-container">
@@ -13,19 +15,19 @@
             <div class="selector-container">
                 <label id="sorting-label" for="sorting-selector">Sort by</label>
                 <select id="sorting-selector">
-                    <option value="price-up">$-$$$</option>
-                    <option value="price-down">$$$-$</option>
-                    <option value="alphabet-up" selected>a-z</option>
-                    <option value="power">power</option>
-                    <option value="control">control</option>
-                    <option value="spin">spin</option>
+                    <option value="price-up" <%= sort == 'price-up' ? 'selected' : '' %>>$-$$$</option>
+                    <option value="price-down" <%= sort == 'price-down' ? 'selected' : '' %>>$$$-$</option>
+                    <option value="alphabet" <%= sort == 'alphabet' ? 'selected' : '' %>>a-z</option>
+                    <option value="power" <%= sort == 'power' ? 'selected' : '' %>>power</option>
+                    <option value="control" <%= sort == 'control' ? 'selected' : '' %>>control</option>
+                    <option value="spin" <%= sort == 'spin' ? 'selected' : '' %>>spin</option>
                 </select>
             </div>
         </div>
     </div>
     <div id="paddles">
         <% paddles.forEach(paddle => { %>
-            <a class="paddle" href="/<%= paddle.id %>">
+            <a class="paddle" href="/paddles/<%= paddle.id %>">
                 <img src="<%= paddle.image %>" alt="<%= paddle.name %>">
                 <h3><%= paddle.name %></h3>
             </a>
