@@ -32,6 +32,7 @@ router.post('/users/:id/revokePermission', requireLogin, requireRole(['admin']),
 // router.post('/quiz', quizPage);
 
 // Paddles routes
+router.get('/', detailPage);
 router.get('/top10', top10Page);
 router.get('/paddles', paddlesPage);
 router.get('/paddles/:paddleId', detailPage);
