@@ -118,7 +118,7 @@ app.listen(PORT, async () => {
     try {
         await testConnection();
         await setupDatabase();
-        console.log(`Server is running on http://127.0.0.1:${PORT}/paddles`);
+        console.log(`Server is running on http://127.0.0.1:${PORT}/`);
     } catch (error) {
         console.error('Database setup failed:', error.message);
         process.exit(1);
