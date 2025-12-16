@@ -1,12 +1,12 @@
 <%- include('../partials/head') %>
 <%- include('../partials/header') %>
     <h1>Welcome to Your Dashboard</h1>
-    <p>
+    <p class="dashboard-actions">
         <a href="/users/<%= user.id %>/edit">Edit Account</a>
     </p>
     <% if (sessionData && sessionData.user) { %>
         <% if(sessionData.user.role_name === 'admin' || sessionData.user.role_name === 'co-admin') { %>
-            <p>
+            <p class="dashboard-actions">
                 <a href="/users">Edit Users</a>
             </p>
         <% } %>
